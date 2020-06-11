@@ -44,7 +44,7 @@ public class NewBehaviourScript : MonoBehaviour{
     IEnumerator waiter(int num)
     {
        
-        yield return new WaitForSeconds(0.1f * num);
+        yield return new WaitForSeconds(0.22f * num);
        
     }   
 
