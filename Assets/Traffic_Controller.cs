@@ -14,6 +14,7 @@ public class Traffic_Controller : MonoBehaviour
     private GameObject traffic_light4;
     private GameObject traffic_light5;
     private GameObject traffic_light6;
+    public  GameObject sound;
     List<GameObject> traffic_lights = new List<GameObject>();
     void Awake() {
 
@@ -21,6 +22,8 @@ public class Traffic_Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sound = GameObject.Find("Sound");
+        sound.SetActive(false);
         car1 = GameObject.Find("car1");
         car2 = GameObject.Find("car2");
         car3 = GameObject.Find("car3");
@@ -31,12 +34,6 @@ public class Traffic_Controller : MonoBehaviour
         traffic_light4 = GameObject.Find("traffic_light4");
         traffic_light5 = GameObject.Find("traffic_light5");
         traffic_light6 = GameObject.Find("traffic_light6");
-        traffic_lights.Add(traffic_light);
-        traffic_lights.Add(traffic_light2);
-        traffic_lights.Add(traffic_light3);
-        traffic_lights.Add(traffic_light4);
-        traffic_lights.Add(traffic_light5);
-        traffic_lights.Add(traffic_light6);
     }
 
     IEnumerator waiter(int caller,float delay)
@@ -73,6 +70,7 @@ public class Traffic_Controller : MonoBehaviour
             {
                 traffic_light6.GetComponent<tralight>().turnGreen();
                 traffic_light5.GetComponent<tralight>().turnGreen();
+                sound.SetActive(true);
                 human1.GetComponent<NewBehaviourScript>().startCar();
                 car1.GetComponent<NewBehaviourScript>().stopCar(); //C#
                 car2.GetComponent<NewBehaviourScript>().stopCar(); //C#
@@ -84,6 +82,7 @@ public class Traffic_Controller : MonoBehaviour
                 traffic_light6.GetComponent<tralight>().turnRed();
                 human1.GetComponent<NewBehaviourScript>().stopCar();
                 traffic_light5.GetComponent<tralight>().turnRed();
+                sound.SetActive(false);
                 car1.GetComponent<NewBehaviourScript>().startCar(); //C#
                 car2.GetComponent<NewBehaviourScript>().startCar(); //C#
             }
@@ -104,11 +103,13 @@ public class Traffic_Controller : MonoBehaviour
                 isSecondTime = false;
                 traffic_light3.GetComponent<tralight>().turnGreen();
                 traffic_light4.GetComponent<tralight>().turnGreen();
+
             }
             if (isfirstTime1)
             {
                 traffic_light3.GetComponent<tralight>().turnRed();
                 traffic_light4.GetComponent<tralight>().turnRed();
+
                 isfirstTime1 = false;
             }
 

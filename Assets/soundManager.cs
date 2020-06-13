@@ -8,6 +8,7 @@ public class soundManager : MonoBehaviour
     // Start is called before the first frame update
     public static AudioClip beepSound;
     static AudioSource auidoSrc;
+    
 
     void Start()
     {
