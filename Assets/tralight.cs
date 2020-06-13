@@ -12,7 +12,7 @@ public class tralight : MonoBehaviour
     private bool on = true;
     private float Timet = 0f;
     private int carnum = 0;
-
+    private int pedestrianNum = 0;
 
     void start() {
        
@@ -28,8 +28,6 @@ public class tralight : MonoBehaviour
             return true;
         }
         return false;
-        
-    
     }
     public void turnRed() {
         light.SetActive(true);
