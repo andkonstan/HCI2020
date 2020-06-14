@@ -122,6 +122,9 @@ public class Traffic_Controller : MonoBehaviour
             else
             {
                 car3.GetComponent<NewBehaviourScript>().startCar(); //C#
+                traffic_light.GetComponent<tralight>().turnRed();
+                traffic_light6.GetComponent<tralight>().turnGreen();
+                traffic_light5.GetComponent<tralight>().turnGreen();
             }
 
         }
